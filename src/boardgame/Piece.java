@@ -1,24 +1,40 @@
 package boardgame;
 
-public class Piece {
-	
+public abstract class Piece {
+
 	protected Position position;
 	private Board board;
-	
-	
+
 	public Piece(Board board) {
 		this.board = board;
-		position = null;               // Não é necessário atribuir. Se não colocar o Java assume como null;
+		position = null; // Não é necessário atribuir. Se não colocar o Java assume como null;
 	}
 
 	protected Board getBoard() {
 		return board;
 	}
-	
-	
 
+	public abstract boolean[][] possibleMove();
 
+	// Abaixo; Método concreto utilizando um método abstrato; Gancho com a subclasse;
+	// Template Metod;
+	public boolean possibleMove(Position position) {
+		return possibleMove()[position.getRow()][position.getColumn()];
+
+	}
 	
+	public boolean isThereAnyPossibleMove() {
+		boolean[][] matriz = possibleMove();
+		
+		for (int i = 0; i < matriz.length; i ++) {
+			for (int j = 0; j < matriz.length; j ++) {
+				if (matriz[i][j]) {
+					return true;
+				}
+			}
+		}
+		return false;		
+	}
 	
 
 }
