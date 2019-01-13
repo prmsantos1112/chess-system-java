@@ -42,17 +42,13 @@ public class ChessMatch {
 		board.placePiece(piece, target);
 		return capturedPiece;
 		
-	}
-	
+	}	
 	
 	private void validateSourcePosition(Position position) {
 		if (!board.thereIsAPiece(position)) {
 			throw new ChessException("There is no Piece on source Position !");
 		}
-	}
-	
-	
-	
+	}	
 	
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
