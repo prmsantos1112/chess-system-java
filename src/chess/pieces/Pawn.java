@@ -40,35 +40,38 @@ public class Pawn extends ChessPiece {
 			if (getBoard().positionExists(pos) && isThereOpponentPiece(pos)) {
 				matriz[pos.getRow()][pos.getColumn()] = true;
 
-			} else {
-				pos.setValues(position.getRow() + 1, position.getColumn());
-				if (getBoard().positionExists(pos) && !getBoard().thereIsAPiece(pos)) {
-					matriz[pos.getRow()][pos.getColumn()] = true;
-				}
+			}
 
-				pos.setValues(position.getRow() + 2, position.getColumn());
-				Position position_2 = new Position(position.getRow() - 1, position.getColumn());
-				if (getBoard().positionExists(pos) && !getBoard().thereIsAPiece(pos)
-						&& getBoard().positionExists(position_2) && !getBoard().thereIsAPiece(position_2)
-						&& getMoveCount() == 0) {
-					matriz[pos.getRow()][pos.getColumn()] = true;
-				}
+		}
 
-				pos.setValues(position.getRow() + 1, position.getColumn() - 1);
-				if (getBoard().positionExists(pos) && isThereOpponentPiece(pos)) {
-					matriz[pos.getRow()][pos.getColumn()] = true;
-				}
+		else {
+			pos.setValues(position.getRow() + 1, position.getColumn());
+			if (getBoard().positionExists(pos) && !getBoard().thereIsAPiece(pos)) {
+				matriz[pos.getRow()][pos.getColumn()] = true;
+			}
 
-				pos.setValues(position.getRow() + 1, position.getColumn() + 1);
-				if (getBoard().positionExists(pos) && isThereOpponentPiece(pos)) {
-					matriz[pos.getRow()][pos.getColumn()] = true;
+			pos.setValues(position.getRow() + 2, position.getColumn());
+			Position position_2 = new Position(position.getRow() - 1, position.getColumn());
+			if (getBoard().positionExists(pos) && !getBoard().thereIsAPiece(pos)
+					&& getBoard().positionExists(position_2) && !getBoard().thereIsAPiece(position_2)
+					&& getMoveCount() == 0) {
+				matriz[pos.getRow()][pos.getColumn()] = true;
+			}
 
-				}
+			pos.setValues(position.getRow() + 1, position.getColumn() - 1);
+			if (getBoard().positionExists(pos) && isThereOpponentPiece(pos)) {
+				matriz[pos.getRow()][pos.getColumn()] = true;
+			}
+
+			pos.setValues(position.getRow() + 1, position.getColumn() + 1);
+			if (getBoard().positionExists(pos) && isThereOpponentPiece(pos)) {
+				matriz[pos.getRow()][pos.getColumn()] = true;
 
 			}
 
 		}
 		return matriz;
+
 	}
 
 	@Override
