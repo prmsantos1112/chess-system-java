@@ -51,7 +51,7 @@ public class Pawn extends ChessPiece {
 			}
 
 			pos.setValues(position.getRow() + 2, position.getColumn());
-			Position position_2 = new Position(position.getRow() - 1, position.getColumn());
+			Position position_2 = new Position(position.getRow() + 1, position.getColumn());
 			if (getBoard().positionExists(pos) && !getBoard().thereIsAPiece(pos)
 					&& getBoard().positionExists(position_2) && !getBoard().thereIsAPiece(position_2)
 					&& getMoveCount() == 0) {
@@ -71,7 +71,6 @@ public class Pawn extends ChessPiece {
 
 		}
 		return matriz;
-
 	}
 
 	@Override
