@@ -101,6 +101,7 @@ public class ChessMatch {
 			enPassantVulnerable = movedPiece;
 
 		} else {
+			
 			enPassantVulnerable = null;
 		}
 

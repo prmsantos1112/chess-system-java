@@ -61,7 +61,6 @@ public class Pawn extends ChessPiece {
 					matriz[right.getRow() - 1][right.getColumn()] = true;
 				}
 			}
-
 		}
 
 		else {
